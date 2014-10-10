@@ -48,6 +48,20 @@ class SmartPtr
         {
             return ptr_ ;
         }
+
+        void resetPtr(Animal *ptr = NULL)
+        {
+           if(ptr != ptr_)   //判断自身赋值问题
+           {
+                delete ptr_ ;
+                ptr_ = ptr ;
+           }
+        }
+
+        const Animal *getPtr() const
+        {
+            return ptr_ ;
+        }
     private:
         SmartPtr(const SmartPtr &other)
             :ptr_(other.ptr_)
